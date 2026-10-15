@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS动画幻灯片（上图下文）</title>
+    <style>
+        /* 幻灯片容器 */
+        .slideshow {
+            position: relative;
+            width: 600px;
+            height: 380px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        /* 图片轨道：横向排列三张图片，通过位移切换 */
+        .track {
+            display: flex;
+            width: 1800px; /* 3 * 600 */
+            animation: slide 9s infinite;
+        }
+        .track img {
+            width: 600px;
+            height: 380px;
+            object-fit: cover;
+            display: block;
+            flex-shrink: 0;
+        }
+        /* 关键帧：通过水平位移实现图片切换 */
+        @keyframes slide {
+            0%, 25%   { transform: translateX(0); }
+            33%, 58%  { transform: translateX(-600px); }
+            66%, 91%  { transform: translateX(-1200px); }
+            100%      { transform: translateX(0); }
+        }
+        /* 文字浮于图片之上，透明背景 */
+        .caption {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            text-align: center;
+            padding: 12px 0;
+            font-size: 22px;
+            color: #fff;
+            background: transparent;
+            z-index: 2;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+        }
+    </style>
+</head>
+<body>
+    <!-- 幻灯片区域：图片切换 + 文字叠加 -->
+    <div class="slideshow">
+        <div class="track">
+            <img src="img1/1.jpg" alt="图片1">
+            <img src="img1/2.jpg" alt="图片2">
+            <img src="img1/3.jpg" alt="图片3">
+        </div>
+        <div class="caption">许桐欣</div>
+    </div>
+</body>
+</html>

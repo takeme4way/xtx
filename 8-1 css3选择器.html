@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            /* 背景颜色#f2f3f4 */
+            background-color: #f2f3f4;
+            display: flex;
+            flex-wrap: wrap;
+            margin: 10px;
+        }
+        .box{
+            width: 150px;
+            height: 159px;
+            border: 1px solid #ccc;
+            margin: 10px;
+            display: flex;
+            font-size: 14px;
+            /* 水平垂直居中 */
+            justify-content: center;
+            align-items: center;
+            transition: all 0.6s;
+            box-sizing: border-box;
+        }
+        .box:first-child:hover{
+            background-color: #000;
+            color: #fff;
+            font-size: 100px;
+            border-width: 30px;
+        }
+        .box:nth-child(2):hover{
+            box-shadow: 10px 20px 30px #000;
+            /* background-color: #000;
+            color: #fff;
+            font-size: 100px;
+            border-width: 30px; */
+        }
+        .box:nth-child(3):hover{
+            text-shadow: 100px 0px 20px #000;
+        }
+        .box:nth-child(4):hover{
+            border-radius: 50%;
+        }
+        .box:nth-child(5){
+            /* 线性渐变 */
+            background: linear-gradient(to right, red, yellow);
+        }
+        .box:nth-child(6){
+            background: radial-gradient(circle, red, yellow);
+        }
+        /* 相邻兄弟选择器 */
+        .box:nth-of-type(6)+.box:hover{
+            transform: scale(0.5);
+        }
+        .box:nth-of-type(8):hover{
+            transform: translateX(-100px);
+        }
+        .box:nth-of-type(9):hover{
+            transform: rotateZ(180deg);
+        }
+        .box:nth-of-type(10):hover{
+            transform: skewX(20deg);
+        }
+        .box:nth-last-child(2):hover::before{
+            content: "hello yandere";
+            color: red;
+        }
+        .box:nth-last-child(1):hover::after{
+            /* content: "hello yandere";
+            color: red;
+            font-size: 6px;
+            display: block;
+            width: 40px;
+            height: 40px;
+            margin: 10px; */
+            /* 黑底白字居中圆角 */
+            /* background-color: #000000; */
+            content: "hello yandere";
+            color: white;
+            font-size: 6px;
+
+            display: block;
+            width: 40px;
+            height: 40px;
+            margin: 10px;
+
+            background-color: #000;
+
+            /* 圆角 */
+            border-radius: 10px;
+
+            /* 水平 + 垂直居中 */
+            text-align: center;
+            line-height: 40px;
+
+        }
+        .box:nth-last-of-type(3n):hover{
+            border: 3px solid red;
+        }
+        /* 鼠标在偶数个盒子有变化 */
+        .box:nth-last-of-type(2n-1):hover{
+         background-color: skyblue;
+        color: white;
+        transform: scale(1.05);
+        box-shadow: 0 0 15px gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+        <div class="box">7</div>
+        <div class="box">8</div>
+        <div class="box">9</div>
+        <div class="box">10</div>
+        <div class="box">11</div>
+        <div class="box">12</div>
+    </div>
+</body>
+</html>

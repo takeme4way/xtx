@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视口响应 - 媒体查询与 rem</title>
+    <style>
+        /* 基准字号：1rem = 16px */
+        html {
+            font-size: 16px;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* 全屏盒子 */
+        .box {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: "Microsoft YaHei", sans-serif;
+            transition: background-color 0.4s ease;
+            background-color: #e74c3c; /* 默认：小屏 红 */
+        }
+        .box .name {
+            font-size: 3rem;
+            color: #fff;
+            letter-spacing: 0.25rem;
+            text-shadow: 0 0.125rem 0.375rem rgba(0,0,0,0.3);
+        }
+        /* 通过伪元素的 content 实现文字随视口变化 */
+        .box .info {
+            margin-top: 1.25rem;
+            font-size: 1.5rem;
+            color: #fff;
+        }
+        .box .info::after {
+            content: "当前：小屏视口（≤600px）";
+        }
+        .box .size {
+            margin-top: 1rem;
+            font-size: 1.125rem;
+            color: rgba(255,255,255,0.85);
+        }
+
+        /* 平板：601px - 900px */
+        @media (min-width: 37.5625rem) and (max-width: 56.25rem) {
+            .box {
+                background-color: #2ecc71; /* 绿 */
+            }
+            .box .info::after {
+                content: "当前：中屏视口（601-900px）";
+            }
+        }
+
+        /* 桌面：901px - 1200px */
+        @media (min-width: 56.3125rem) and (max-width: 75rem) {
+            .box {
+                background-color: #3498db; /* 蓝 */
+            }
+            .box .info::after {
+                content: "当前：大屏视口（901-1200px）";
+            }
+        }
+
+        /* 超大屏：≥1201px */
+        @media (min-width: 75.0625rem) {
+            .box {
+                background-color: #9b59b6; /* 紫 */
+            }
+            .box .info::after {
+                content: "当前：超大屏视口（≥1201px）";
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="name">许桐欣</div>
+        <div class="info"></div>
+        <div class="size">调整浏览器窗口大小观察背景色与文字变化</div>
+    </div>
+</body>
+</html>

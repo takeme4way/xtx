@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            color: red;
+            font-size: 100px;
+        }
+        .text{
+            color: blue;
+            font-size: 20px;
+        }
+        #text{
+            color: green;
+            font-size: 30px;
+        }
+        .box p{
+            color: orange;
+        }
+        #box #text{
+            color: silver;
+        }
+        .text{
+            color: yellow!important;
+            /* hack,可覆盖内嵌css */
+        }
+        #box{
+            /* 宽400，高400，灰色背景，距离，字间距5px */
+            width: 400px;
+            height: 400px;
+            background-color: gray;
+            margin: 25px;
+        } 
+        /* 优先级:id>class */
+    </style>
+    <link rel="stylesheet" href="css.css">
+    <!-- 后定义的覆盖前面定义的 class用 . id用# -->
+</head>
+<body>
+    <h2>继承和层叠</h2>
+    <div id ="box">
+        <p id="text" class="text">24001010909 xutongxin</p>
+        <p>层叠与继承的优先级</p>
+    </div>
+</body>
+</html>

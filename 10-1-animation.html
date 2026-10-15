@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>背景颜色动画</title>
+    <style>
+        /* 定义动画 */
+        @keyframes colorChange {
+            0% { background-color: red; }
+            25% { background-color: blue; }
+            50% { background-color: green; }
+            75% { background-color: yellow; }
+            100% { background-color: red; }
+        }
+
+        /* 盒子样式 */
+        .animated-box {
+            width: 200px;
+            height: 200px;
+            animation: colorChange 4s infinite;
+        }
+
+        /* 扩展1.自定义动画：组合位移 / 旋转 / 缩放 / 颜色 */
+        @keyframes customMove {
+            0% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+                background-color: #ff6b6b;
+                border-radius: 0;
+            }
+            25% {
+                transform: translate(150px, 0) rotate(90deg) scale(1.2);
+                background-color: #4ecdc4;
+                border-radius: 50%;
+            }
+            50% {
+                transform: translate(150px, 150px) rotate(180deg) scale(0.8);
+                background-color: #ffe66d;
+                border-radius: 0;
+            }
+            75% {
+                transform: translate(0, 150px) rotate(270deg) scale(1.2);
+                background-color: #6c5ce7;
+                border-radius: 50%;
+            }
+            100% {
+                transform: translate(0, 0) rotate(360deg) scale(1);
+                background-color: #ff6b6b;
+                border-radius: 0;
+            }
+        }
+        .custom-box {
+            width: 100px;
+            height: 100px;
+            margin-top: 30px;
+            animation: customMove 6s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- 动画盒子：背景颜色动画 -->
+    <div class="animated-box"></div>
+    <!-- 扩展1.自定义动画：位移+旋转+缩放+颜色+圆角联动 -->
+    <div class="custom-box"></div>
+</body>
+</html>

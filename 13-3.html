@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>移动端底部导航</title>
+<!-- 引入 iconfont 字体图标 -->
+<link rel="stylesheet" href="font_5244722_v0q45bpmzfi/iconfont.css">
+<style>
+/* 全局样式 */
+.xinbody {
+    font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+    background: #f5f6f8;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* 页面主体内容 */
+.xincontent {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 20px 16px 120px;
+}
+
+.xinheader {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    padding: 24px 0;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    margin-bottom: 16px;
+}
+
+.xincard {
+    background: #fff;
+    border-radius: 10px;
+    padding: 18px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.xincard p {
+    margin: 6px 0;
+    font-size: 14px;
+    color: #777;
+}
+
+/* 底部固定导航：自适应宽度 */
+.xinnav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    background: #fff;
+    border-top: 1px solid #e8e8e8;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.06);
+    z-index: 100;
+}
+
+/* 导航项：flex:1 实现等宽自适应 */
+.xinnav-item {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 0 10px;
+    font-size: 12px;
+    color: #888;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.xinnav-item .xiniconfont {
+    font-size: 24px;
+    line-height: 1;
+    margin-bottom: 3px;
+}
+
+.xinnav-item:hover {
+    color: #4a90d9;
+}
+
+/* 当前激活项 */
+.xinnav-item.xinitem-active {
+    color: #4a90d9;
+    font-weight: bold;
+}
+
+/* 右上角数字徽章 */
+.xinbadge {
+    position: absolute;
+    top: 4px;
+    left: 50%;
+    margin-left: 6px;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    box-sizing: border-box;
+    background: #ff4d4f;
+    color: #fff;
+    font-size: 10px;
+    line-height: 16px;
+    text-align: center;
+    border-radius: 8px;
+    border: 1px solid #fff;
+}
+
+/* 右上角红点 */
+.xindot {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    margin-left: 8px;
+    width: 8px;
+    height: 8px;
+    background: #ff4d4f;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
+</style>
+</head>
+<body class="xinbody">
+
+<div class="xincontent">
+    <div class="xinheader">移动端底部导航示例</div>
+    <div class="xincard">
+        <p>这是一个固定在底部的导航栏。</p>
+        <p>使用 flex 布局并设置 flex:1，四个导航项等宽排列，可自适应任意屏幕宽度。</p>
+        <p>图标来自 iconfont 字体图标库，通过 font-size、color 可自由缩放和变色。</p>
+    </div>
+    <div class="xincard">
+        <p>「发现」右上角带有数字徽章，表示未读数量。</p>
+        <p>「我的」右上角带有红点，表示有新消息提醒。</p>
+        <p>向下滚动页面可以看到导航栏始终固定在底部。</p>
+    </div>
+</div>
+
+<!-- 底部固定导航 -->
+<nav class="xinnav">
+    <a class="xinnav-item xinitem-active">
+        <i class="xiniconfont iconfont icon-shouye1"></i>
+        <span>首页</span>
+    </a>
+    <a class="xinnav-item">
+        <i class="xiniconfont iconfont icon-faxian"></i>
+        <span>发现</span>
+        <!-- 右上角数字徽章 -->
+        <em class="xinbadge">99</em>
+    </a>
+    <a class="xinnav-item">
+        <i class="xiniconfont iconfont icon-shipin"></i>
+        <span>视频</span>
+    </a>
+    <a class="xinnav-item">
+        <i class="xiniconfont iconfont icon-my"></i>
+        <span>我的</span>
+        <!-- 右上角红点 -->
+        <i class="xindot"></i>
+    </a>
+</nav>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 5244722 */
+  src: url('iconfont.woff2?t=1792390576749') format('woff2'),
+       url('iconfont.woff?t=1792390576749') format('woff'),
+       url('iconfont.ttf?t=1792390576749') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-niunai:before {
+  content: "\e62f";
+}
+
+.icon-my:before {
+  content: "\e635";
+}
+
+.icon-shipin:before {
+  content: "\e63b";
+}
+
+.icon-shouye:before {
+  content: "\e618";
+}
+
+.icon-sousuo:before {
+  content: "\e6a8";
+}
+
+.icon-ego-fav:before {
+  content: "\e60c";
+}
+
+.icon-more-br:before {
+  content: "\e649";
+}
+
+.icon-pingguo:before {
+  content: "\e69b";
+}
+
+.icon-login:before {
+  content: "\e8ef";
+}
+
+.icon-fanhui:before {
+  content: "\e61f";
+}
+
+.icon-faxian:before {
+  content: "\e604";
+}
+
+.icon-weixin:before {
+  content: "\e8bb";
+}
+
+.icon-zengjia:before {
+  content: "\e8c0";
+}
+
+.icon-weixin1:before {
+  content: "\e607";
+}
+
+.icon-shouye1:before {
+  content: "\e600";
+}
+
+.icon-bianji:before {
+  content: "\e645";
+}
+
+.icon-luckin_logo_lightblue:before {
+  content: "\e611";
+}
+
+.icon-deepseek1:before {
+  content: "\e603";
+}
+
+.icon-doubao:before {
+  content: "\e601";
+}
+

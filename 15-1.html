@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>逢7过 - 100个盒子</title>
+    <link rel="stylesheet" href="font_5244722_v0q45bpmzfi/iconfont.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+            background: #f0f2f5;
+            padding: 2rem;
+        }
+        .xtx_container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .xtx_title {
+            text-align: center;
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        .xtx_intro {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        .xtx_grid {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 0.5rem;
+        }
+        .xtx_box {
+            aspect-ratio: 1 / 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5rem;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        /* 满足7的规则 → 空盒子 */
+        .xtx_box-empty {
+            background: #e74c3c;
+            border: 2px dashed #c0392b;
+        }
+        /* 不满足 → 显示数字 */
+        .xtx_box-num {
+            background: #fff;
+            color: #2c3e50;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+        }
+        .xtx_legend {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.85rem;
+            color: #555;
+        }
+        .xtx_legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .xtx_legend-dot {
+            width: 1rem;
+            height: 1rem;
+            border-radius: 0.25rem;
+            display: inline-block;
+        }
+        @media (max-width: 37.5rem) {
+            .xtx_grid { grid-template-columns: repeat(5, 1fr); }
+        }
+    </style>
+</head>
+<body>
+<!-- 姓名：许桐欣 日期：2026-10-26 功能名称：逢7过游戏 100个盒子 -->
+<div class="xtx_container">
+    <h1 class="xtx_title">逢 7 过（1-100）</h1>
+    <p class="xtx_intro">规则：是 7 的倍数、或数字中含 7 的盒子跳过（显示为空）；其余显示数字</p>
+
+    <div class="xtx_legend">
+        <span class="xtx_legend-item">
+            <span class="xtx_legend-dot" style="background:#e74c3c;"></span>满足7的规则 → 空盒子
+        </span>
+        <span class="xtx_legend-item">
+            <span class="xtx_legend-dot" style="background:#fff;border:1px solid #ccc;"></span>不满足 → 显示数字
+        </span>
+    </div>
+
+    <div class="xtx_grid" id="xtx_grid"></div>
+</div>
+
+<script>
+    var xtx_grid = document.getElementById("xtx_grid");
+    var xtx_html = "";
+
+    for (var xtx_i = 1; xtx_i <= 100; xtx_i++) {
+        // 逢7过规则：7的倍数 或 含数字7（个位/十位为7）
+        var xtx_isMultiple = xtx_i % 7 === 0;
+        var xtx_hasSeven = xtx_i % 10 === 7 || parseInt(xtx_i / 10) === 7;
+
+        if (xtx_isMultiple || xtx_hasSeven) {
+            // 满足要求 → 空盒子
+            xtx_html += '<div class="xtx_box xtx_box-empty"></div>';
+        } else {
+            // 不满足 → 显示数字
+            xtx_html += '<div class="xtx_box xtx_box-num">' + xtx_i + '</div>';
+        }
+    }
+
+    xtx_grid.innerHTML = xtx_html;
+</script>
+</body>
+</html>

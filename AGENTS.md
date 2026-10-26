@@ -12,8 +12,12 @@ Personal practice repo for a web-design course ("高级网页设计"). Static HT
 
 ## Conventions
 
-- All CSS class names, id names, and JS variables must start with `xin`.
+- All CSS class names, id names, and JS variables must start with `xtx_`.
 - Before executing any prompt, append the prompt (timestamp, model name, prompt text) to `xin_prompt.md` — never overwrite it.
+- Every newly created HTML file must include a comment on the first line inside `<body>`:
+  `<!-- 姓名：许桐欣 建立时间：YYYY-MM-DD 使用大模型：<模型名> 功能名称：<简短描述> -->`
+  - 姓名 fixed as 许桐欣；建立时间 = file creation date; 使用大模型 = the AI model actually used to generate the file; 功能名称 = 4-12 Chinese characters describing the page purpose.
+  - Example: `<!-- 姓名：许桐欣 建立时间：2026-10-26 使用大模型：GLM-5.3-Flash 功能名称：逢7过游戏 -->`
 - Every newly created HTML file must be added to the link list in `index.html`.
 
 ## Working here

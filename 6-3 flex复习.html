@@ -1,0 +1,102 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flex{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>同花顺快捷功能导航</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        /* 外层容器：让四个功能入口横向排列 */
+        .container {
+            display: flex;
+            justify-content: space-around;
+            background-color: white;
+            padding: 24px;
+        }
+
+        /* 单个功能入口：让图标和文字纵向排列 */
+        .feature {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* 图标区域 */
+        /* .icon {
+            width: 48px;
+            height: 48px;
+            background-color: #e53955;
+            border-radius: 10px; */
+
+            /* 让图标在红色方块中居中 */
+            /* display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 24px;
+        } */
+
+        /* 功能名称 */
+        p {
+            margin: 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="feature">
+            <div class="icon">📈</div>
+            <p>行情中心</p>
+        </div>
+
+        <div class="feature">
+            <div class="icon">💰</div>
+            <p>融资融券</p>
+        </div>
+
+        <div class="feature">
+            <div class="icon">⭐</div>
+            <p>热门股票</p>
+        </div>
+
+        <div class="feature">
+            <div class="icon">📅</div>
+            <p>投资日历</p>
+        </div>
+    </div>
+</body>
+</html>

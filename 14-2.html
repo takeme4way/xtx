@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 六种基本数据类型</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+            background: #f0f2f5;
+            padding: 2rem;
+        }
+        .xtx_container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .xtx_title {
+            text-align: center;
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+        .xtx_intro {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+        .xtx_type-card {
+            background: #fff;
+            border-radius: 0.75rem;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border-left: 0.35rem solid #3498db;
+        }
+        .xtx_type-name {
+            font-size: 1.15rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        .xtx_type-tag {
+            display: inline-block;
+            background: #3498db;
+            color: #fff;
+            padding: 0.15rem 0.6rem;
+            border-radius: 0.25rem;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+            font-weight: normal;
+        }
+        .xtx_code-row {
+            font-family: "Consolas", "Courier New", monospace;
+            font-size: 0.9rem;
+            background: #f8f9fa;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.35rem;
+            margin: 0.4rem 0;
+            color: #2c3e50;
+        }
+        .xtx_code-row .xtx_key { color: #c0392b; }
+        .xtx_code-row .xtx_val { color: #27ae60; }
+        .xtx_code-row .xtx_type-of { color: #8e44ad; font-weight: bold; }
+        .xtx_btn-run {
+            display: block;
+            width: 100%;
+            padding: 0.85rem;
+            margin-top: 0.5rem;
+            background: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .xtx_btn-run:hover {
+            background: #2980b9;
+        }
+        .xtx_result {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+<!-- 姓名：许桐欣 日期：2026-10-22 功能名称：演示 JavaScript 六种基本数据类型 -->
+<div class="xtx_container">
+    <h1 class="xtx_title">JavaScript 六种基本数据类型</h1>
+    <p class="xtx_intro">点击"运行并查看"将在控制台输出 typeof 结果，同时页面下方实时显示</p>
+
+    <!-- 1. String 字符串 -->
+    <div class="xtx_type-card" style="border-left-color: #e74c3c;">
+        <div class="xtx_type-name">1. String 字符串<span class="xtx_type-tag" style="background:#e74c3c;">typeof → "string"</span></div>
+        <div class="xtx_code-row"><span class="xtx_key">var</span> xtx_name = <span class="xtx_val">"许桐欣"</span>; → <span class="xtx_type-of">string</span></div>
+    </div>
+
+    <!-- 2. Number 数字 -->
+    <div class="xtx_type-card" style="border-left-color: #f39c12;">
+        <div class="xtx_type-name">2. Number 数字<span class="xtx_type-tag" style="background:#f39c12;">typeof → "number"</span></div>
+        <div class="xtx_code-row"><span class="xtx_key">var</span> xtx_age = <span class="xtx_val">20</span>; → <span class="xtx_type-of">number</span></div>
+    </div>
+
+    <!-- 3. Boolean 布尔 -->
+    <div class="xtx_type-card" style="border-left-color: #27ae60;">
+        <div class="xtx_type-name">3. Boolean 布尔<span class="xtx_type-tag" style="background:#27ae60;">typeof → "boolean"</span></div>
+        <div class="xtx_code-row"><span class="xtx_key">var</span> xtx_isStudent = <span class="xtx_val">true</span>; → <span class="xtx_type-of">boolean</span></div>
+    </div>
+
+    <!-- 4. Null 空 -->
+    <div class="xtx_type-card" style="border-left-color: #9b59b6;">
+        <div class="xtx_type-name">4. Null 空<span class="xtx_type-tag" style="background:#9b59b6;">typeof → "object"</span></div>
+        <div class="xtx_code-row"><span class="xtx_key">var</span> xtx_empty = <span class="xtx_val">null</span>; → <span class="xtx_type-of">object（历史遗留 bug）</span></div>
+    </div>
+
+    <!-- 5. Undefined 未定义 -->
+    <div class="xtx_type-card" style="border-left-color: #16a085;">
+        <div class="xtx_type-name">5. Undefined 未定义<span class="xtx_type-tag" style="background:#16a085;">typeof → "undefined"</span></div>
+        <div class="xtx_code-row"><span class="xtx_key">var</span> xtx_unknown; → <span class="xtx_type-of">undefined</span></div>
+    </div>
+
+    <!-- 6. Object 对象 -->
+    <div class="xtx_type-card" style="border-left-color: #34495e;">
+        <div class="xtx_type-name">6. Object 对象<span class="xtx_type-tag" style="background:#34495e;">typeof → "object"</span></div>
+        <div class="xtx_code-row"><span class="xtx_key">var</span> xtx_info = <span class="xtx_val">{name:"许桐欣", grade:"大二"}</span>; → <span class="xtx_type-of">object</span></div>
+    </div>
+
+    <!-- 运行按钮 -->
+    <button class="xtx_btn-run" onclick="xtx_showResults()">运行并查看全部结果</button>
+    <div id="xtx_result" class="xtx_result"></div>
+</div>
+
+<script>
+    // 六种基本数据类型声明
+    var xtx_name = "许桐欣";          // String
+    var xtx_age = 20;                 // Number
+    var xtx_isStudent = true;         // Boolean
+    var xtx_empty = null;             // Null
+    var xtx_unknown;                  // Undefined
+    var xtx_info = {name:"许桐欣", grade:"大二"}; // Object
+
+    function xtx_showResults() {
+        var xtx_lines = [];
+        // 逐项输出到 console 和页面
+        console.log("===== JavaScript 六种基本数据类型 =====");
+
+        xtx_lines.push("1. String 字符串：" + xtx_name + " → typeof = " + typeof xtx_name);
+        console.log("1. String：", xtx_name, "→ typeof =", typeof xtx_name);
+
+        xtx_lines.push("2. Number 数字：" + xtx_age + " → typeof = " + typeof xtx_age);
+        console.log("2. Number：", xtx_age, "→ typeof =", typeof xtx_age);
+
+        xtx_lines.push("3. Boolean 布尔：" + xtx_isStudent + " → typeof = " + typeof xtx_isStudent);
+        console.log("3. Boolean：", xtx_isStudent, "→ typeof =", typeof xtx_isStudent);
+
+        xtx_lines.push("4. Null 空：" + xtx_empty + " → typeof = " + typeof xtx_empty + "（历史 bug）");
+        console.log("4. Null：", xtx_empty, "→ typeof =", typeof xtx_empty, "← 历史遗留 bug");
+
+        xtx_lines.push("5. Undefined 未定义：" + xtx_unknown + " → typeof = " + typeof xtx_unknown);
+        console.log("5. Undefined：", xtx_unknown, "→ typeof =", typeof xtx_unknown);
+
+        xtx_lines.push("6. Object 对象：" + JSON.stringify(xtx_info) + " → typeof = " + typeof xtx_info);
+        console.log("6. Object：", xtx_info, "→ typeof =", typeof xtx_info);
+
+        // 追加数组 typeof
+        var xtx_arr = [1, 2, 3];
+        xtx_lines.push("   (补充) Array 也是 Object → typeof = " + typeof xtx_arr);
+        console.log("   Array：", xtx_arr, "→ typeof =", typeof xtx_arr);
+
+        document.getElementById("xtx_result").innerHTML =
+            "<pre style='background:#2c3e50;color:#ecf0f1;padding:1rem;border-radius:0.5rem;margin-top:0.75rem;white-space:pre-wrap;'>" +
+            xtx_lines.join("\n") +
+            "</pre>";
+    }
+</script>
+</body>
+</html>

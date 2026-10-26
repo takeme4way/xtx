@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 程序结构：循环与条件</title>
+    <link rel="stylesheet" href="font_5244722_v0q45bpmzfi/iconfont.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+            background: #f0f2f5;
+            color: #2c3e50;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        .xtx_container { max-width: 920px; margin: 0 auto; }
+        .xtx_title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 0.4rem;
+        }
+        .xtx_intro {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+        .xtx_card {
+            background: #fff;
+            border-radius: 0.75rem;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border-left: 0.35rem solid #3498db;
+        }
+        .xtx_card-cond { border-left-color: #e74c3c; }
+        .xtx_card-loop { border-left-color: #27ae60; }
+        .xtx_card-mix  { border-left-color: #9b59b6; }
+        .xtx_card h2 {
+            font-size: 1.15rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .xtx_tag {
+            font-size: 0.72rem;
+            font-weight: normal;
+            padding: 0.15rem 0.55rem;
+            border-radius: 0.25rem;
+            color: #fff;
+            background: #bdc3c7;
+        }
+        .xtx_tag-cond { background: #e74c3c; }
+        .xtx_tag-loop { background: #27ae60; }
+        .xtx_tag-mix  { background: #9b59b6; }
+        .xtx_code {
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 0.86rem;
+            background: #f8f9fa;
+            padding: 0.75rem 1rem;
+            border-radius: 0.4rem;
+            margin: 0.6rem 0;
+            white-space: pre-wrap;
+            color: #2c3e50;
+            border-left: 3px solid #dfe6e9;
+        }
+        .xtx_kw  { color: #c0392b; font-weight: bold; }
+        .xtx_str { color: #27ae60; }
+        .xtx_num { color: #8e44ad; }
+        .xtx_cmt { color: #95a5a6; font-style: italic; }
+        .xtx_btn {
+            background: #3498db;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1.1rem;
+            border-radius: 0.4rem;
+            font-size: 0.88rem;
+            cursor: pointer;
+            margin-right: 0.5rem;
+            transition: background 0.2s;
+        }
+        .xtx_btn:hover { background: #2980b9; }
+        .xtx_btn i { margin-right: 0.3rem; }
+        .xtx_out {
+            margin-top: 0.75rem;
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 0.85rem 1rem;
+            border-radius: 0.4rem;
+            font-family: Consolas, monospace;
+            font-size: 0.82rem;
+            white-space: pre-wrap;
+            min-height: 2.2rem;
+            word-break: break-all;
+        }
+        .xtx_out:empty::before {
+            content: "（点击按钮运行，结果将显示在这里）";
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+<!-- 姓名：许桐欣 建立时间：2026-10-26 使用大模型：GLM-5.2 功能名称：JS循环与条件结构 -->
+<div class="xtx_container">
+    <h1 class="xtx_title">JavaScript 程序结构：循环与条件</h1>
+    <p class="xtx_intro">用可运行示例演示 if/else、switch、for、while、do-while、break/continue</p>
+
+    <!-- 1. if / else -->
+    <section class="xtx_card xtx_card-cond">
+        <h2><i class="iconfont icon-sousuo"></i>1. if…else 条件分支<span class="xtx_tag xtx_tag-cond">条件</span></h2>
+        <p>根据分数判断等级：≥90 优秀，≥80 良好，≥60 及格，否则不及格。</p>
+        <div class="xtx_code"><span class="xtx_kw">var</span> score = 78;
+<span class="xtx_kw">if</span> (score >= 90) {
+    grade = <span class="xtx_str">"优秀"</span>;
+} <span class="xtx_kw">else if</span> (score >= 80) {
+    grade = <span class="xtx_str">"良好"</span>;
+} <span class="xtx_kw">else if</span> (score >= 60) {
+    grade = <span class="xtx_str">"及格"</span>;
+} <span class="xtx_kw">else</span> {
+    grade = <span class="xtx_str">"不及格"</span>;
+}</div>
+        <button class="xtx_btn" onclick="xtx_runIf()"><i class="iconfont icon-shouye"></i>运行 if/else</button>
+        <div class="xtx_out" id="xtx_out_if"></div>
+    </section>
+
+    <!-- 2. switch -->
+    <section class="xtx_card xtx_card-cond">
+        <h2><i class="iconfont icon-sousuo"></i>2. switch 多分支<span class="xtx_tag xtx_tag-cond">条件</span></h2>
+        <p>根据数字 1-7 输出对应的星期，其它显示"无效"。</p>
+        <div class="xtx_code"><span class="xtx_kw">var</span> day = 3;
+<span class="xtx_kw">switch</span> (day) {
+    <span class="xtx_kw">case</span> 1: w = <span class="xtx_str">"星期一"</span>; <span class="xtx_kw">break</span>;
+    <span class="xtx_kw">case</span> 2: w = <span class="xtx_str">"星期二"</span>; <span class="xtx_kw">break</span>;
+    <span class="xtx_kw">case</span> 3: w = <span class="xtx_str">"星期三"</span>; <span class="xtx_kw">break</span>;
+    <span class="xtx_cmt">/* ...省略... */</span>
+    <span class="xtx_kw">default</span>: w = <span class="xtx_str">"无效"</span>;
+}</div>
+        <button class="xtx_btn" onclick="xtx_runSwitch()"><i class="iconfont icon-shouye"></i>运行 switch</button>
+        <div class="xtx_out" id="xtx_out_switch"></div>
+    </section>
+
+    <!-- 3. for -->
+    <section class="xtx_card xtx_card-loop">
+        <h2><i class="iconfont icon-zengjia"></i>3. for 循环 — 九九乘法表<span class="xtx_tag xtx_tag-loop">循环</span></h2>
+        <p>双层 for 循环生成九九乘法表。</p>
+        <div class="xtx_code"><span class="xtx_kw">for</span> (<span class="xtx_kw">var</span> i = 1; i <= 9; i++) {
+    <span class="xtx_kw">for</span> (<span class="xtx_kw">var</span> j = 1; j <= i; j++) {
+        line += j + <span class="xtx_str">"×"</span> + i + <span class="xtx_str">"="</span> + (i*j) + <span class="xtx_str">" "</span>;
+    }
+    line += <span class="xtx_str">"\n"</span>;
+}</div>
+        <button class="xtx_btn" onclick="xtx_runFor()"><i class="iconfont icon-shouye"></i>运行 for</button>
+        <div class="xtx_out" id="xtx_out_for"></div>
+    </section>
+
+    <!-- 4. while -->
+    <section class="xtx_card xtx_card-loop">
+        <h2><i class="iconfont icon-zengjia"></i>4. while 循环 — 1到100求和<span class="xtx_tag xtx_tag-loop">循环</span></h2>
+        <p>用 while 累加 1+2+…+100。</p>
+        <div class="xtx_code"><span class="xtx_kw">var</span> sum = 0, n = 1;
+<span class="xtx_kw">while</span> (n <= 100) {
+    sum += n;
+    n++;
+}</div>
+        <button class="xtx_btn" onclick="xtx_runWhile()"><i class="iconfont icon-shouye"></i>运行 while</button>
+        <div class="xtx_out" id="xtx_out_while"></div>
+    </section>
+
+    <!-- 5. do-while -->
+    <section class="xtx_card xtx_card-loop">
+        <h2><i class="iconfont icon-zengjia"></i>5. do…while 循环<span class="xtx_tag xtx_tag-loop">循环</span></h2>
+        <p>先执行一次循环体再判断条件：倒数 5…1。</p>
+        <div class="xtx_code"><span class="xtx_kw">var</span> k = 5, s = <span class="xtx_str">""</span>;
+<span class="xtx_kw">do</span> {
+    s += k + <span class="xtx_str">" "</span>;
+    k--;
+} <span class="xtx_kw">while</span> (k > 0);</div>
+        <button class="xtx_btn" onclick="xtx_runDoWhile()"><i class="iconfont icon-shouye"></i>运行 do-while</button>
+        <div class="xtx_out" id="xtx_out_dowhile"></div>
+    </section>
+
+    <!-- 6. break / continue -->
+    <section class="xtx_card xtx_card-mix">
+        <h2><i class="iconfont icon-bianji"></i>6. break / continue — 跳出与跳过<span class="xtx_tag xtx_tag-mix">循环控制</span></h2>
+        <p>输出 1-10 中所有奇数，遇到 7 时停止（break）；偶数用 continue 跳过。</p>
+        <div class="xtx_code"><span class="xtx_kw">var</span> r = <span class="xtx_str">""</span>;
+<span class="xtx_kw">for</span> (<span class="xtx_kw">var</span> i = 1; i <= 10; i++) {
+    <span class="xtx_kw">if</span> (i % 2 === 0) <span class="xtx_kw">continue</span>;  <span class="xtx_cmt">// 跳过偶数</span>
+    <span class="xtx_kw">if</span> (i === 7) <span class="xtx_kw">break</span>;       <span class="xtx_cmt">// 遇7终止</span>
+    r += i + <span class="xtx_str">" "</span>;
+}</div>
+        <button class="xtx_btn" onclick="xtx_runBreak()"><i class="iconfont icon-shouye"></i>运行 break/continue</button>
+        <div class="xtx_out" id="xtx_out_break"></div>
+    </section>
+
+    <button class="xtx_btn" onclick="xtx_runAll()" style="background:#27ae60;margin-top:0.5rem;">
+        <i class="iconfont icon-shouye"></i>一键运行全部
+    </button>
+</div>
+
+<script>
+    // 1. if / else
+    function xtx_runIf() {
+        var score = 78, grade;
+        if (score >= 90) { grade = "优秀"; }
+        else if (score >= 80) { grade = "良好"; }
+        else if (score >= 60) { grade = "及格"; }
+        else { grade = "不及格"; }
+        document.getElementById("xtx_out_if").innerText =
+            "score = " + score + "\n→ 等级：" + grade;
+    }
+
+    // 2. switch
+    function xtx_runSwitch() {
+        var day = 3, w;
+        switch (day) {
+            case 1: w = "星期一"; break;
+            case 2: w = "星期二"; break;
+            case 3: w = "星期三"; break;
+            case 4: w = "星期四"; break;
+            case 5: w = "星期五"; break;
+            case 6: w = "星期六"; break;
+            case 7: w = "星期日"; break;
+            default: w = "无效";
+        }
+        document.getElementById("xtx_out_switch").innerText =
+            "day = " + day + "\n→ " + w;
+    }
+
+    // 3. for —— 九九乘法表
+    function xtx_runFor() {
+        var line = "";
+        for (var i = 1; i <= 9; i++) {
+            for (var j = 1; j <= i; j++) {
+                line += j + "×" + i + "=" + (i * j) + "\t";
+            }
+            line += "\n";
+        }
+        document.getElementById("xtx_out_for").innerText = line;
+    }
+
+    // 4. while —— 1到100求和
+    function xtx_runWhile() {
+        var sum = 0, n = 1;
+        while (n <= 100) { sum += n; n++; }
+        document.getElementById("xtx_out_while").innerText =
+            "1+2+…+100 = " + sum;
+    }
+
+    // 5. do-while
+    function xtx_runDoWhile() {
+        var k = 5, s = "";
+        do { s += k + " "; k--; } while (k > 0);
+        document.getElementById("xtx_out_dowhile").innerText =
+            "do-while 倒数：" + s;
+    }
+
+    // 6. break / continue
+    function xtx_runBreak() {
+        var r = "";
+        for (var i = 1; i <= 10; i++) {
+            if (i % 2 === 0) continue;
+            if (i === 7) break;
+            r += i + " ";
+        }
+        document.getElementById("xtx_out_break").innerText =
+            "结果：" + r + "（遇到 7 break）";
+    }
+
+    // 一键全跑
+    function xtx_runAll() {
+        xtx_runIf(); xtx_runSwitch(); xtx_runFor();
+        xtx_runWhile(); xtx_runDoWhile(); xtx_runBreak();
+    }
+</script>
+</body>
+</html>
